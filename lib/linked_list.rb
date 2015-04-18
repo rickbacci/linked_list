@@ -1,9 +1,9 @@
 require 'pry'
 
 # State that needs to be tracked
-# TODO the head of the list
-# TODO data of each node
-# TODO next node of each node (link)
+# the head of the list
+# data of each node
+# next node of each node (link)
 
 
 
@@ -45,16 +45,12 @@ class LinkedList
   end
 end
 
-
 # list = LinkedList.new('my_list_name')
-# p list.name
 # list.add_node("I'm the first node.")
 # list.add_node("I'm the second node.")
 # list.add_node("I'm the third node.")
 # #binding.pry
-#
 # list.add_node("I'm the 4th node.")
-#
 # list.add_node("I'm the 5th node.")
 #  puts
 #  p list.name
