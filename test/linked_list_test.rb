@@ -71,6 +71,15 @@ class LinkedListTest < MiniTest::Test
   end
 
   def test_count_one_node
+    single = LinkedList.new('single')
+    single.add_node('just one')
+    assert_equal 1, single.count
+  end
 
+  def test_count_two_nodes
+    double = LinkedList.new('double')
+    double.add_node('one')
+    double.add_node('two')
+    assert_equal 2, double.count
   end
 end

@@ -22,6 +22,7 @@ class LinkedList
   def initialize(name)
     @name = name
     @head = nil
+    @count = 0
   end
 
   def add_node(data)
@@ -36,21 +37,34 @@ class LinkedList
   def check_next_node(node, data)
     if node.next_node.nil?
       node.next_node = Node.new(data)
-      return data
     else
       node = node.next_node
 
       check_next_node(node, data)
     end
+    return data
+  end
+
+  def count
+    @count += 1
+    return @count if self.head.next_node.nil?
+
+    while self.head.next_node
+      @count += 1
+      return @count
+    end
   end
 end
 
-# list = LinkedList.new('my_list_name')
-# list.add_node("I'm the first node.")
-# list.add_node("I'm the second node.")
+ # list = LinkedList.new('my_list_name')
+ # list.add_node("I'm the first node.")
+ # list.add_node("I'm the second node.")
 # list.add_node("I'm the third node.")
-# #binding.pry
 # list.add_node("I'm the 4th node.")
 # list.add_node("I'm the 5th node.")
-#  puts
+# puts
 #  p list.name
+#binding.pry
+#
+# p list.count
+#
