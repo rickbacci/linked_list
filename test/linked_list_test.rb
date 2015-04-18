@@ -82,4 +82,8 @@ class LinkedListTest < MiniTest::Test
     double.add_node('two')
     assert_equal 2, double.count
   end
+
+  def test_count_more_than_two
+    assert_equal 4, @list.count
+  end
 end

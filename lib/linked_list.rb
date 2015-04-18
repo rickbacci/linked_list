@@ -51,7 +51,8 @@ class LinkedList
 
     while self.head.next_node
       @count += 1
-      return @count
+      @head = head.next_node
+      return @count if self.head.next_node.nil?
     end
   end
 end
