@@ -95,4 +95,5 @@ class LinkedListTest < MiniTest::Test
   def test_return_last_node_data
     assert_equal "I'm the fourth node.", @list.last
   end
+
 end

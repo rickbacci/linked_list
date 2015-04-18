@@ -19,7 +19,7 @@ class LinkedList
   end
 
   def add_node(data)
-    if @head.nil?
+    if head.nil?
       @head = Node.new(data)
       return data
     end
@@ -37,21 +37,18 @@ class LinkedList
     return data
   end
 
-  def count
-    return 0 if self.head.nil?
-
+  def count(node = self.head)
+    return 0 if node.nil?
     @count += 1
-    return @count if self.head.next_node.nil?
-    @head = head.next_node
+    return @count if node.next_node.nil?
 
-    count
+    count(node.next_node)
   end
 
-  def last
-    return self.head.data if self.head.next_node.nil?
-    @head = head.next_node
+  def last(node = self.head)
+    return node.data if node.next_node.nil?
 
-    last
+    last(node.next_node)
   end
 end
 

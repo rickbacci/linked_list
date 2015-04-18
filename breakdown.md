@@ -77,9 +77,28 @@ end
 
 ask head.next_node...are you nil?
 
-if yes
-  head = node
-  else
-  head = node.next_node
+    if true
+      head = node
+    else
+      head = node.next_node
+    end
+
+
+
+
+    def check_next_node(node, data)
+      if node.next_node.nil?
+        #### do stuff
+      else
+        check_next_node(node.next_node, data)
+      end
+      return data
+    end
+
+### do stuff could be:
+
+* add node.......Node.new(data)
+* count nodes
+* return data
 
 
