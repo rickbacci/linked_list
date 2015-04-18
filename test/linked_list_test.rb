@@ -35,9 +35,14 @@ class LinkedListTest < MiniTest::Test
 
   def test_new_nodes_link_points_to_nil
     @list.add_node("I'm the first node.")
-    @list.head.next_node
+
+    assert_equal nil, @list.head.next_node
   end
 
-
-
+  def test_a_second_node_can_be_added
+    @list.add_node("I'm the first node.")
+    @list.add_node("I'm the second node.")
+    data = @list.head.next_node.data
+    assert_equal "I'm the second node.", data
+  end
 end
