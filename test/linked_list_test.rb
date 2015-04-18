@@ -87,7 +87,7 @@ class LinkedListTest < MiniTest::Test
     assert_equal 4, @list.count
   end
 
-  def test_count_with_return_zero_head_is_nil
+  def test_count_will_return_zero_if_head_is_nil
     empty = LinkedList.new('mt')
     assert_equal 0, empty.count
   end
