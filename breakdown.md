@@ -54,3 +54,32 @@ pointer.next points to [new_node]
 
 to delete
 pointer.next = pointer.next.next
+
+
+
+ask head...are you nil?
+
+
+
+if head.nil?
+  head = node
+  return head
+end
+
+if head.next_node.nil?
+  head.next_node = Node.new(data)
+else
+  head = head.next_node
+end
+
+
+
+
+ask head.next_node...are you nil?
+
+if yes
+  head = node
+  else
+  head = node.next_node
+
+
