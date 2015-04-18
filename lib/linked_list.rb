@@ -48,11 +48,11 @@ class LinkedList
   def count
     return 0 if self.head.nil?
 
-    while true
-      @count += 1
-      return @count if self.head.next_node.nil?
-      @head = head.next_node
-    end
+    @count += 1
+    return @count if self.head.next_node.nil?
+    @head = head.next_node
+
+    count
   end
 end
 
