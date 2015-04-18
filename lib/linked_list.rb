@@ -6,15 +6,8 @@ require 'pry'
 # next node of each node (link)
 
 
+Node = Struct.new(:data, :next_node)
 
-class Node
-  attr_accessor :data, :next_node
-
-  def initialize(data)
-    @data = data
-    @next_node = nil
-  end
-end
 
 class LinkedList
   attr_accessor :name, :head
