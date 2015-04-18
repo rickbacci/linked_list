@@ -28,12 +28,11 @@ class LinkedList
   end
 
   def check_next_node(node, data)
+
     if node.next_node.nil?
       node.next_node = Node.new(data)
     else
-      node = node.next_node
-
-      check_next_node(node, data)
+      check_next_node(node.next_node, data)
     end
     return data
   end
@@ -46,6 +45,13 @@ class LinkedList
     @head = head.next_node
 
     count
+  end
+
+  def last
+    return self.head.data if self.head.next_node.nil?
+    @head = head.next_node
+
+    last
   end
 end
 
