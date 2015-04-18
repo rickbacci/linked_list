@@ -4,6 +4,9 @@ require 'pry'
 # TODO the head of the list
 # TODO data of each node
 # TODO next node of each node (link)
+
+
+
 class Node
   attr_accessor :data, :next_node
 
@@ -22,12 +25,22 @@ class LinkedList
   end
 
   def add_node(data)
-
-    if head.nil?
+    if @head.nil?
       @head = Node.new(data)
+      return data
+    end
+
+    check_next_node(@head, data)
+  end
+
+  def check_next_node(node, data)
+    if node.next_node.nil?
+      node.next_node = Node.new(data)
+      return data
     else
-      node = Node.new(data)
-      head.next_node = node
+      node = node.next_node
+
+      check_next_node(node, data)
     end
   end
 end
@@ -37,3 +50,11 @@ end
 # p list.name
 # list.add_node("I'm the first node.")
 # list.add_node("I'm the second node.")
+# list.add_node("I'm the third node.")
+# #binding.pry
+#
+# list.add_node("I'm the 4th node.")
+#
+# list.add_node("I'm the 5th node.")
+#  puts
+#  p list.name

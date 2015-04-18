@@ -4,7 +4,7 @@ require './test/test_helper'
 class NodeTest < MiniTest::Test
 
   def setup
-    @node = Node.new
+    @node = Node.new('node_test')
   end
 
   def test_a_node_exists
@@ -12,8 +12,7 @@ class NodeTest < MiniTest::Test
   end
 
   def test_a_node_can_hold_data
-    @node.data = 'some data'
-    assert_equal 'some data', @node.data
+    assert_equal 'node_test', @node.data
   end
 
   def test_new_node_points_to_nil
