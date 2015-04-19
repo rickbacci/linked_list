@@ -1,5 +1,5 @@
 require "minitest"
 require "minitest/autorun"
 
-require './lib/linked_list'
+require './lib/recursive_linked_list'
 

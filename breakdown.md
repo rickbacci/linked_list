@@ -120,3 +120,13 @@ ask head.next_node...are you nil?
 
 
 
+list.head
+<list, @data = 'ant >
+
+list.next
+nil
+list.add('vane'
+list.next
+<listadadsfafsdf , @data = 'vane'>
+list.next.next
+
