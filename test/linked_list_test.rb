@@ -110,7 +110,7 @@ class LinkedListTest < MiniTest::Test
   end
 
 
-  def test_pop_last_node_from_multiple_node_list
+  def test_pop_last_node_from_two_node_list
     double = LinkedList.new('double')
     double.add_node('one')
     double.add_node('two')

@@ -15,7 +15,6 @@ class LinkedList
   def initialize(name)
     @name = name
     @head = nil
-    #@count = 0
     @prev_node = nil
   end
 
@@ -46,28 +45,32 @@ class LinkedList
     count(node.next_node, total)
   end
 
+
   def last(node = self.head)
     return node.data if node.next_node.nil?
 
     last(node.next_node)
   end
 
+
   def pop(node = self.head)
-     if @prev_node.nil?
-       @prev_node = node
 
-       if node.next_node == nil # for 1
-         self.head = nil
-       else
-         self.head.next_node = nil if self.head.next_node.next_node.nil? # for 2
-         pop(self.head.next_node)
-       end
+    if @prev_node.nil? && node.next_node.nil? # pop 1 node
+        self.head = nil
+    else
 
-     else
-       #binding.pry
-       #self.head.next_node = nil if self.head.next_node.next_node.nil?
-       #pop(self.head.next_node)
-     end
+      if @prev_node.nil? # pop 2 nodes
+        @prev_node = node
+        pop(node.next_node)
+      else
+        if node.next_node.nil?
+          @prev_node.next_node = nil
+        else
+          @prev_node = node
+          pop(node.next_node)
+        end
+      end
+    end
   end
 end
 
@@ -85,4 +88,3 @@ end
 # binding.pry
 
 #p list.count
-
