@@ -162,11 +162,31 @@ class LinkedListTest < MiniTest::Test
     assert_equal "I'm the second node.", @list[1]
   end
 
-  # def test_pop_returns_popped_data
-  #   @list.add_node("I'm the first node.")
-  #   @list.add_node("I'm the second node.")
-  #
-  #   assert_equal "I'm the second node.", @list.pop
-  #   #assert_equal "I'm the first node.", @list.pop
-  # end
+  def test_pop_returns_popped_data_from_a_single_node
+    single = RecursiveLinkedList.new('single')
+    single.add_node('just one')
+    assert_equal 'just one', single.pop
+  end
+
+  def test_pop_returns_popped_data_from_a_list_with_two_nodes
+    double = RecursiveLinkedList.new('double')
+    double.add_node('one')
+    double.add_node('two')
+    assert_equal 'two', double.pop
+    assert_equal 'one', double.pop
+  end
+
+  def test_pop_returns_popped_data_from_a_multi_node_list
+    list = RecursiveLinkedList.new(@name)
+
+    list.add_node("I'm the first node.")
+    list.add_node("I'm the second node.")
+    list.add_node("I'm the third node.")
+    list.add_node("I'm the fourth node.")
+
+    assert_equal "I'm the fourth node.", list.pop
+    assert_equal "I'm the third node.", list.pop
+    assert_equal "I'm the second node.", list.pop
+    assert_equal "I'm the first node.", list.pop
+  end
 end

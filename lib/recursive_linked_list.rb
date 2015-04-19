@@ -57,9 +57,11 @@ class RecursiveLinkedList
 
 
   def pop(node = self.head)
-
+    data = ''
     if @prev_node.nil? && node.next_node.nil? # pop 1 node
+      data = node.data
       self.head = nil
+      return data
     else
 
       if @prev_node.nil? # pop 2 nodes
@@ -67,7 +69,9 @@ class RecursiveLinkedList
         pop(node.next_node)
       else
         if node.next_node.nil?
+          data = node.data
           @prev_node.next_node = nil
+          return data
         else
           @prev_node = node
           pop(node.next_node)
