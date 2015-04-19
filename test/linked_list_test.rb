@@ -130,4 +130,14 @@ class LinkedListTest < MiniTest::Test
     @list.pop
     assert_equal 3, @list.count
   end
+
+  def test_access_single_node_list_by_index
+    single = LinkedList.new('single')
+    single.add_node('just one')
+
+    assert_equal 'just one', single[0]
+    single.pop
+    single.add_node('another one')
+    assert_equal 'another one', single[0]
+  end
 end

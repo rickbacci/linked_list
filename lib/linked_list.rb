@@ -6,17 +6,25 @@ require 'pry'
 # next node of each node (link)
 
 
-Node = Struct.new(:data, :next_node)
-
+# class Node
+#   attr_accessor :data, :next_node, :location
+#   def initialize
+#     @data = data
+#     @next_node = next_node
+#     @location = LinkedList.locations
+#   end
+# end
 
 class LinkedList
-  attr_accessor :name, :head, :prev_node
+  attr_accessor :name, :head, :prev_node, :location
 
   def initialize(name)
     @name = name
     @head = nil
     @prev_node = nil
+    @location = 0
   end
+
 
   def add_node(data)
     if head.nil?
@@ -71,6 +79,29 @@ class LinkedList
         end
       end
     end
+  end
+
+  def [](val, node = self.head)
+    @location ||= 0
+
+    if location == val
+
+      @location = 0
+      return node.data
+    else
+      @location += 1
+      [val, node.next_node]
+    end
+  end
+end
+
+
+
+class Node
+  attr_accessor :data, :next_node
+  def initialize(data)
+    @data = data
+    @next_node = nil
   end
 end
 
