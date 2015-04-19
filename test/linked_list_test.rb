@@ -12,6 +12,8 @@ class LinkedListTest < MiniTest::Test
     @test2 = @list.add_node("I'm the second node.")
     @test3 = @list.add_node("I'm the third node.")
     @test4 = @list.add_node("I'm the fourth node.")
+
+
   end
 
   def test_an_empty_lists_head_points_to_nil
@@ -72,6 +74,7 @@ class LinkedListTest < MiniTest::Test
 
   def test_count_one_node
     single = LinkedList.new('single')
+
     single.add_node('just one')
     assert_equal 1, single.count
   end
@@ -94,6 +97,27 @@ class LinkedListTest < MiniTest::Test
 
   def test_return_last_node_data
     assert_equal "I'm the fourth node.", @list.last
+  end
+
+  def test_a_single_node_can_be_popped
+
+    single = LinkedList.new('single')
+
+    single.add_node('just one')
+    assert_equal 1, single.count
+    single.pop
+    assert_equal 0, single.count
+  end
+
+
+  def test_pop_last_node_from_multiple_node_list
+    double = LinkedList.new('double')
+    double.add_node('one')
+    double.add_node('two')
+    assert_equal 2, double.count
+    #binding.pry
+    double.pop
+    assert_equal 1, double.count
   end
 
 end

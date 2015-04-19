@@ -102,3 +102,21 @@ ask head.next_node...are you nil?
 * return data
 
 
+
+   60:     p @prev_node = node
+[1] pry(#<LinkedList>)> self.head
+=> #<struct Node data="one", next_node=#<struct Node data="two", next_node=nil>>
+[2] pry(#<LinkedList>)> self.head.next_node
+=> #<struct Node data="two", next_node=nil>
+[3] pry(#<LinkedList>)> self.head.next_node.nil?
+=> false
+[4] pry(#<LinkedList>)> self.head.next_node.next_node.nil?
+=> true
+[5] pry(#<LinkedList>)> self.head.next_node = nil
+=> nil
+[6] pry(#<LinkedList>)> self.head
+=> #<struct Node data="one", next_node=nil>
+[7] pry(#<LinkedList>)> 
+
+
+

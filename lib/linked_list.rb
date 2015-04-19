@@ -10,12 +10,13 @@ Node = Struct.new(:data, :next_node)
 
 
 class LinkedList
-  attr_accessor :name, :head
+  attr_accessor :name, :head, :prev_node
 
   def initialize(name)
     @name = name
     @head = nil
-    @count = 0
+    #@count = 0
+    @prev_node = nil
   end
 
   def add_node(data)
@@ -37,12 +38,12 @@ class LinkedList
     return data
   end
 
-  def count(node = self.head)
+  def count(node = self.head, total = 0)
     return 0 if node.nil?
-    @count += 1
-    return @count if node.next_node.nil?
+    total += 1
+    return total if node.next_node.nil?
 
-    count(node.next_node)
+    count(node.next_node, total)
   end
 
   def last(node = self.head)
@@ -50,17 +51,33 @@ class LinkedList
 
     last(node.next_node)
   end
+
+  def pop(node = self.head)
+     if @prev_node.nil?
+       @prev_node = node
+       return self.head = nil if node.next_node == nil
+
+       self.head.next_node = nil if self.head.next_node.next_node.nil?
+
+     else
+       #self.head.next_node = nil if self.head.next_node.next_node.nil?
+       #pop(node.next_node)
+     end
+  end
 end
 
- # list = LinkedList.new('my_list_name')
- # list.add_node("I'm the first node.")
- # list.add_node("I'm the second node.")
+#list = LinkedList.new('my_list_name')
+#list.add_node("I'm the first node.")
+#binding.pry
+
+#list.pop
+# list.add_node("I'm the second node.")
 # list.add_node("I'm the third node.")
 # list.add_node("I'm the 4th node.")
 # list.add_node("I'm the 5th node.")
 # puts
 #  p list.name
-#binding.pry
-#
-# p list.count
-#
+# binding.pry
+
+#p list.count
+
