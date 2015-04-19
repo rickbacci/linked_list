@@ -115,9 +115,19 @@ class LinkedListTest < MiniTest::Test
     double.add_node('one')
     double.add_node('two')
     assert_equal 2, double.count
-    #binding.pry
     double.pop
     assert_equal 1, double.count
   end
 
+  def test_pop_working_for_4_nodes
+    @list = LinkedList.new(@name)
+
+    @list.add_node("I'm the first node.")
+    @list.add_node("I'm the second node.")
+    @list.add_node("I'm the third node.")
+    @list.add_node("I'm the fourth node.")
+
+    @list.pop
+    assert_equal 3, @list.count
+  end
 end

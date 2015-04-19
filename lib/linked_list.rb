@@ -55,13 +55,18 @@ class LinkedList
   def pop(node = self.head)
      if @prev_node.nil?
        @prev_node = node
-       return self.head = nil if node.next_node == nil
 
-       self.head.next_node = nil if self.head.next_node.next_node.nil?
+       if node.next_node == nil # for 1
+         self.head = nil
+       else
+         self.head.next_node = nil if self.head.next_node.next_node.nil? # for 2
+         pop(self.head.next_node)
+       end
 
      else
+       #binding.pry
        #self.head.next_node = nil if self.head.next_node.next_node.nil?
-       #pop(node.next_node)
+       #pop(self.head.next_node)
      end
   end
 end
