@@ -6,7 +6,6 @@ class LinkedListTest < MiniTest::Test
   def setup
     @name = 'test_list'
     @list = RecursiveLinkedList.new(@name)
-    #@data = ''
 
     @test1 = @list.add_node("I'm the first node.")
     @test2 = @list.add_node("I'm the second node.")
@@ -108,7 +107,6 @@ class LinkedListTest < MiniTest::Test
     single.pop
     assert_equal 0, single.count
   end
-
 
   def test_pop_last_node_from_two_node_list
     double = RecursiveLinkedList.new('double')

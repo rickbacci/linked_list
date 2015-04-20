@@ -44,53 +44,40 @@ class RecursiveLinkedList
     return 0 if node.nil?
     total += 1
     return total if node.next_node.nil?
-
     count(node.next_node, total)
   end
 
 
   def last(node = self.head)
     return node.data if node.next_node.nil?
-
     last(node.next_node)
   end
 
 
-  def pop(node = self.head)
-    data = ''
-    if @prev_node.nil? && node.next_node.nil? # pop 1 node
+  def pop(prev_node = nil, node = self.head)
+
+    if prev_node.nil? && node.next_node.nil? # pop 1 node
       data = node.data
       self.head = nil
       return data
     else
-
-      if @prev_node.nil? # pop 2 nodes
-        @prev_node = node
-        pop(node.next_node)
+      if prev_node.nil? # pop 2 nodes
+        pop(node, node.next_node)
       else
         if node.next_node.nil?
           data = node.data
-          @prev_node.next_node = nil
+          prev_node.next_node = nil
           return data
         else
-          @prev_node = node
-          pop(node.next_node)
+          pop(node, node.next_node)
         end
       end
     end
   end
 
-  def [](val, node = self.head)
-    @location ||= 0
-
-    if location == val
-
-      @location = 0
-      return node.data
-    else
-      @location += 1
-      self.[](val, node.next_node)
-    end
+  def [](index, node = self.head)
+    return node.data if index == 0
+    self.[](index - 1, node.next_node)
   end
 end
 
