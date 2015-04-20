@@ -1,23 +1,15 @@
 require 'pry'
 
 
-
-class Node
-  attr_accessor :data, :next_node
-  def initialize(data)
-    @data = data
-    @next_node = nil
-  end
-end
+Node = Struct.new(:data, :next_node)
 
 
 class RecursiveLinkedList
-  attr_accessor :name, :head, :prev_node, :location
+  attr_accessor :name, :head
 
   def initialize(name)
     @name = name
     @head = nil
-    @prev_node = nil
   end
 
 
@@ -47,12 +39,10 @@ class RecursiveLinkedList
     count(node.next_node, total)
   end
 
-
   def last(node = self.head)
     return node.data if node.next_node.nil?
     last(node.next_node)
   end
-
 
   def pop(prev_node = nil, node = self.head)
 
